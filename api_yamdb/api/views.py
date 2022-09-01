@@ -6,13 +6,14 @@ from rest_framework import filters, mixins, permissions, status, viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from reviews.models import Category, Genre, Review, Title, User
 
 from api_yamdb.settings import EMAIL_HOST_USER
-from reviews.models import Category, Genre, Review, Title, User
+
 from .filters import TitleFilter
 from .permissions import Admin, IsAdminOrReadOnly, ReviewCommentPermission
-from .serializers import CategorySerilizer, CommentsSerializer
-from .serializers import (GenreSerializer, PostTitleSerializer,
+from .serializers import (CategorySerilizer, CommentsSerializer,
+                          GenreSerializer, PostTitleSerializer,
                           ReviewSerializer, TitleSerializer,
                           TokenConfirmationSerializer,
                           UserRegistrationSerializer, UserSerializer)
