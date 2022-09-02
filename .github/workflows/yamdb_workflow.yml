@@ -18,10 +18,13 @@ jobs:
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
         pip install -r api_yamdb/requirements.txt 
 
-    - name: Test with flake8 and django tests
+    - name: Test with flake8
       run: |
         # запуск проверки проекта по flake8
         python -m flake8
+
+    - name: Test with pytest
+      run: |
         # запуск pytest из репозитория yamdb_final
         pytest
 
@@ -77,6 +80,8 @@ jobs:
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           # полетели
           sudo docker compose up -d
+          # почистили систему от лишнего мусора
+          sudo docker system prune
 
   send_message:
     runs-on: ubuntu-latest
