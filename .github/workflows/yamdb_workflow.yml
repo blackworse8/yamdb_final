@@ -81,7 +81,7 @@ jobs:
           # полетели
           sudo docker compose up -d
           # почистили систему от лишнего мусора
-          sudo docker system prune
+          sudo docker system prune -f
 
   send_message:
     runs-on: ubuntu-latest
